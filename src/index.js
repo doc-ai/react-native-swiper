@@ -711,9 +711,10 @@ export default class extends Component {
       button = this.props.nextButton || <Text style={styles.buttonText}>›</Text>
     }
 
+    const scrollBy = this.scrollBy
     return (
       <TouchableOpacity
-        onPress={() => button !== null && this.scrollBy(1)}
+        onPress={() => button !== null && scrollBy(1)}
         disabled={this.props.disableNextButton}
       >
         <View>{button}</View>
@@ -728,9 +729,10 @@ export default class extends Component {
       button = this.props.prevButton || <Text style={styles.buttonText}>‹</Text>
     }
 
+    const scrollBy = this.scrollBy
     return (
       <TouchableOpacity
-        onPress={() => button !== null && this.scrollBy(-1)}
+        onPress={() => button !== null && scrollBy(-1)}
         disabled={this.props.disablePrevButton}
       >
         <View>{button}</View>
