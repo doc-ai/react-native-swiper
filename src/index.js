@@ -721,7 +721,34 @@ export default class extends Component {
             )
           }
         } else {
-          return <View style={pageStyle} key={i}>{children[page]}</View>
+          return (
+          <View 
+            style={pageStyle} 
+            key={i} 
+            accessible={true}
+            accessibilityRole={'adjustable'}
+            accessibilityActions={[
+              {name: 'increment', label: 'increment'},
+              {name: 'decrement', label: 'decrement'},
+            ]}
+            onAccessibilityAction={(event) => {
+                switch (event.nativeEvent.actionName) {
+                  case 'increment':
+                    if(pages.length !== this.state.index-1){
+                      this.scrollBy(1)
+                    }           
+                    break;
+                  case 'decrement':
+                    if(this.state.index !== 0){
+                      this.scrollBy(-1)
+                    }                 
+                    break;
+                  default:
+                    break;
+                }         
+            }}>
+              {children[page]}
+          </View>)
         }
       })
     } else {
