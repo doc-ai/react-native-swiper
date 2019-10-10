@@ -173,6 +173,10 @@ export default class extends Component {
     onIndexChanged: () => null
   }
 
+  constructor(props) {
+    super(props);
+  }
+
   /**
    * Init states
    * @return {object} states
