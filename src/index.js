@@ -97,6 +97,9 @@ const styles = {
 // missing `module.exports = exports['default'];` with babel6
 // export default React.createClass({
 export default class extends Component {
+  constructor(props){
+    super(props);
+  }
   /**
    * Props Validation
    * @type {Object}
